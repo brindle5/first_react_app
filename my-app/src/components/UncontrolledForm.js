@@ -2,40 +2,17 @@ import React, { Component } from 'react'
 
 export class UncontrolledForm extends Component {
     constructor(props) {
-        super(props)
-
-        this.state = {
-            name: '',
-            comments: '',
-            category: 'website',
-        }
-    }
-
-    handleNameChange = (event) => {
-
-        this.setState({
-            name: event.target.value
-        })
-    }
-
-    handleCategory = (event) => {
-
-        this.setState({
-            category: event.target.value
-            
-        })
-    }
-
-    handleComments = (event) => {
-
-        this.setState({
-            comments: event.target.value
-            
-        })
+        super(props) 
+        this.inputName = React.createRef();
+        this.inputCategory = React.createRef();
+        this.inputComments = React.createRef();
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
+        console.log(this.inputName.current.value)
+        console.log(this.inputCategory.current.value)
+        console.log(this.inputComments.current.value)
     }
 
     render() {
@@ -45,21 +22,19 @@ export class UncontrolledForm extends Component {
                     <div>
                         <label htmlFor="id-name">Your name:</label>
                         <input
-                            value={this.state.name}
-                            onChange={this.handleNameChange}
                             id="id-name"
                             name="name"
                             type="text"
+                            ref = {this.inputName}
                         />
                     </div>
 
                     <div>
                         <label htmlFor="id-category">Query category:</label>
                         <select
-                            value={this.state.category} 
-                            onChange={this.handleCategory}
                             id="id-category" 
                             name="category"
+                            ref = {this.inputCategory}
                         >
                                 <option value="website">Website issue</option>
                                 <option value="order">Order issue</option>
@@ -70,10 +45,9 @@ export class UncontrolledForm extends Component {
                     <div>
                         <label htmlFor='id-comments'>Comments:</label>
                         <textarea 
-                            value={this.state.comments}
-                            onChange={this.handleComments}
                             id="id-comments" 
                             name="comments" 
+                            ref = {this.inputComments}
                         />
                     </div>
                     <input type="submit" value="Submit" />
