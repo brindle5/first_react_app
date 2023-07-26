@@ -18,12 +18,15 @@ import LifeCyclesCWU from './components/LifeCycleCWU';
 import ControlledForm from './components/ControlledForm';
 import UncontrolledForm from './components/UncontrolledForm';
 import SearchBar from './components/SearchBar';
+import HooksCounter from './components/HooksCounter';
+import ControlledFormHooks from './components/ControlledFormHooks';
+import UseStateWithArrays from './components/UseStateWithArrays';
 
 
 
 function App() {
   return <div className="App">
-      <SearchBar />
+      <UseStateWithArrays />
   </div>;
 }
 
